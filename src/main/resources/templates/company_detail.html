@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap3.min.css">
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <title>Stock</title>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Admin Group</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="import_stock.html">Import Data</a></li>
+                <li><a href="admin_list.html">Manage Company</a></li>
+                <li><a href="login.html">Login/Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="admin_list.html">Add Company</a></li>
+                <li><a href="list_company.html">Company List</a></li>
+                <li><a href="ipo_list.html">IPO List</a></li>
+            </ul>
+            <hr class="hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="col-sm-8">
+            <h3>Edit company</h3>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Company Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type company name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Turnover</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type turnover">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">CEO</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type CEO">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Board of Dirctores</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type board of dirctores">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Stock Exchange</label>
+                    <div class="col-sm-4">
+                        <select class="form-control">
+                            <option>Choose</option>
+                            <option>BSE</option>
+                            <option>NSE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Sectors</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type sectors">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Brief</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type brief">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Stock Code</label>
+                    <div class="col-sm-4">
+                        <select class="form-control">
+                            <option>Choose</option>
+                            <option>Stock001</option>
+                            <option>Stock002</option>
+                            <option>Stock003</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

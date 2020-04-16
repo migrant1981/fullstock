@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap3.min.css">
+    <link rel="stylesheet" href="../static/css/Chart.css">
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <title>Stock</title>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="user_list.html">User Group</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="signup.html">SignUp</a></li>
+                <li><a href="user_list.html">User List</a></li>
+                <li><a href="login.html">Login/Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="user_profile.html">Profile</a></li>
+                <li><a href="change_pwd.html">Change Password</a></li>
+                <li><a href="company_list.html">Search Company</a></li>
+            </ul>
+            <hr class="hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="col-sm-8">
+            <h3>Search Company</h3>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Company A</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type company name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Company B</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="type company name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">From Date</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" placeholder="type start date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">End Date</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" placeholder="type end date">
+                    </div>
+                </div>
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-striped table-bordered table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Stock Exchange</th>
+                    <th>Turnover</th>
+                    <th>Brief</th>
+                    <th>operation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>company001</td>
+                    <td>BSE</td>
+                    <td>demo</td>
+                    <td>demo</td>
+                    <td><a href="#">View</a>&nbsp;&nbsp;Chart</td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <canvas id="myChart" width="600" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/js/Chart.js"></script>
+<script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+             type: 'bar',
+            data: {
+                labels: ['Company1', 'Company2'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12,44],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+</script>
+</body>
+</html>
