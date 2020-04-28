@@ -1,0 +1,31 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-23 14:48:06
+ * @LastEditTime: 2020-04-23 14:57:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \ng-bootstrap\src\app\strockprice\strockprice.component.html
+ -->
+<div class="col-sm-12">
+  <h3>Import Stock Price List</h3>
+  <table class="table table-striped table-bordered table-hover table-condensed">
+      <thead>
+      <tr>
+          <th>Company Name</th>
+          <th>Stock Exchange</th>
+          <th>Price</th>
+          <th>Date</th>
+          <th>Time</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pri of prices">
+          <td>{{ pri.companyname }}</td>
+          <td>{{ pri.stockexchange }}</td>
+          <td>{{ pri.price | money }}</td>
+          <td>{{ pri.date }}</td>
+          <td>{{ pri.time }}</td>
+      </tr>
+      </tbody>
+  </table>
+</div>

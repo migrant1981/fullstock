@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-18 20:42:34
+ * @LastEditTime: 2020-04-23 14:58:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \ng-bootstrap\src\app\navbar\navbar.component.html
+ -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbar-fixed-top">
+  <a class="navbar-brand" href="#">Stock</a>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/login']">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/adminlist']">Company</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/sellerlist']">Seller</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/ipoplan']">IPO Plan</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/importstock']">Import Data</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/stockprice']">Stock Price</a>
+      </li>
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <button *ngIf="!isSignin" class="btn btn-outline-primary" type="submit" [routerLink]="['/login']">Login</button>
+      <button *ngIf="isSignin" class="btn btn-outline-secondary" type="submit" (click)="signOut()">LogOut</button>
+    </form>
+  </div>
+</nav>
