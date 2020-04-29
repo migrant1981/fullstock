@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-04-20 14:15:33
- * @LastEditTime: 2020-04-20 14:18:58
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\login.guard.ts.ts
- */
 import { Injectable } from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
 

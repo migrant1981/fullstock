@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-04-18 15:35:49
- * @LastEditTime: 2020-04-24 17:05:59
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\login\login.component.ts
- */
 import { Component, OnInit } from '@angular/core';
 import { Unit } from '../unit';
 import { Router } from '@angular/router';
@@ -35,20 +27,27 @@ export class LoginComponent implements OnInit {
 
   onSubmit(value: any) {
     if (this.validInput(value)) {
-      this.unit.postSignIn(value).subscribe(
-        data => {
-          console.log(JSON.stringify(data));
-          const info: any = data;
-          if (200 === info.code) {
-              console.log('login successful,redirect page...');
-              this.route.navigate(['/adminlist']);
-          } else {
-            console.log('login failing.');
-            this.alerts.push({type : 'danger', message: 'username or password error!'});
+      // this.unit.postSignIn(value).subscribe(
+      //   data => {
+      //     console.log(JSON.stringify(data));
+      //     const info: any = data;
+      //     if (200 === info.code) {
+      //         console.log('login successful,redirect page...');
+      //         this.route.navigate(['/adminlist']);
+      //     } else {
+      //       console.log('login failing.');
+      //       this.alerts.push({type : 'danger', message: 'username or password error!'});
 
-          }
-        }
-      );
+      //     }
+      //   }
+      // );
+      if (value.username === 'admin') {
+        sessionStorage.setItem('token', 'admin');
+      } else {
+        sessionStorage.setItem('token', 'seller');
+      }
+      sessionStorage.setItem('loginuser','1');
+      this.route.navigate(['/dashboad']);
     }
   }
 

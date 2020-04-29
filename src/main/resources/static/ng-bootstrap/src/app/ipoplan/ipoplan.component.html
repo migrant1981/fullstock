@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let ipo of ipoplans">
-          <td>{{ ipo.companyname }}</td>
+          <td><a class="nav-link" href [routerLink]="['/ipodetail', ipo.id]">{{ ipo.companyname }}</a></td>
           <td>{{ ipo.stockexchange }}</td>
           <td>{{ ipo.price | money }}</td>
           <td>{{ ipo.totalnumber | number }}</td>

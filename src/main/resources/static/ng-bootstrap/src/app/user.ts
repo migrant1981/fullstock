@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-04-17 21:48:26
- * @LastEditTime: 2020-04-24 13:37:45
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\user.ts
- */
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../environments/environment';
@@ -25,6 +17,7 @@ export class UserService {
   usertype: string;
   email: string;
   mobile: string;
+  token?: string;
 
   constructor(private http: HttpClient) { }
 
@@ -40,6 +33,10 @@ export class UserService {
       email: 'testtest@cn.ibm.com',
       mobile: '17700998899'
     };
+  }
+
+  signup(value: any) {
+    return this.http.post(`${environment.baseUrl}/signup`, JSON.stringify(value), httpOptions);
   }
 
   setUserInfo(value: any) {

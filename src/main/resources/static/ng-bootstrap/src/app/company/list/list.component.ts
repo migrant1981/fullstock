@@ -56,39 +56,15 @@ const COMPANY: CompanyItem[] = [{
 })
 export class ListComponent implements OnInit {
 
-  options: any;
-  isDisplay: boolean;
 
-  constructor(private companyservice: CompanyService, private router:Router) {
-    this.isDisplay = false;
-  }
+
+  constructor(private companyservice: CompanyService, private router:Router) { }
 
   companys: CompanyItem[];
 
   ngOnInit(): void {
     this.companys = COMPANY;
     // this.getAllCompanyList();
-
-    this.options = {
-        xAxis: {
-            type: 'category',
-            data: ['Company001', 'Company002']
-        },
-        yAxis: {
-            type: 'value',
-            data: [5,400]
-        },
-        series: [{
-            itemStyle: {
-              color: 'blue',
-              barBorderRadius: [18, 18, 0 ,0]
-            },
-            barWidth: 40,
-            barCategoryGap: '20%',
-            data: [40, 100],
-            type: 'bar'
-        }]
-    };
   }
 
   getAllCompanyList() {
@@ -107,21 +83,6 @@ export class ListComponent implements OnInit {
 
   }
 
-  getCompanyList(value: any) {
-    this.companyservice.getCompanyList(value).subscribe(
-      data => {
-        console.log(JSON.stringify(data));
-        const info: any = data;
-        if (200 === info.code) {
-            console.log('company list successful,redirect page...');
-            this.router.navigate(['/companylist']);
-        } else {
-          console.log('modify company info failing.');
-        }
-      }
-    );
-  }
-
   getSingleCompany(id: any) {
     this.companyservice.getCompanyById(id).subscribe(
       data => {
@@ -129,7 +90,6 @@ export class ListComponent implements OnInit {
         const info: any = data;
         if (200 === info.code) {
             console.log('company single info successful,redirect page...');
-            this.isDisplay = true;
         } else {
           console.log('modify company info failing.');
         }
@@ -137,8 +97,5 @@ export class ListComponent implements OnInit {
     );
   }
 
-  showCompanyCharts(): void {
-    this.isDisplay = !this.isDisplay;
-  }
 
 }

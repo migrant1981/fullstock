@@ -1,14 +1,6 @@
-/*
- * @Author: your name
- * @Date: 2020-04-18 20:42:34
- * @LastEditTime: 2020-04-22 16:03:46
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\navbar\navbar.component.ts
- */
 import { Component, OnInit } from '@angular/core';
 import {Unit} from '../unit';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,13 +9,21 @@ import {Router} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private routeInfo: ActivatedRoute) { }
 
    isSignin: boolean;
+   isRole: boolean;
+   loginuser: string;
 
   ngOnInit(): void {
     if (sessionStorage.getItem('token')){
+      if (sessionStorage.getItem('token') === 'admin'){
+        this.isRole = true;
+      } else {
+        this.isRole = false;
+      }
       this.isSignin = true;
+      this.loginuser = sessionStorage.getItem('loginuser');
     } else {
       this.isSignin = false;
     }
@@ -40,6 +40,7 @@ export class NavbarComponent implements OnInit {
 
   signOut() {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('loginuser');
     this.router.navigate(['/login']);
   }
 }

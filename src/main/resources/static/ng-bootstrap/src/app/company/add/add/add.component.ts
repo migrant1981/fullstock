@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { CompanyService } from '../../company.service';
-import { DictsinfoService } from './../../dictsinfo.service';
+import { CompanyService } from '../../../company.service';
+import { DictsinfoService } from './../../../dictsinfo.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
 interface Alert {
@@ -12,11 +12,12 @@ interface Alert {
 const ALERTS: Alert[] = [];
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.css']
 })
-export class EditComponent implements OnInit {
+
+export class AddComponent implements OnInit {
 
   alerts : Alert[];
 
@@ -27,20 +28,14 @@ export class EditComponent implements OnInit {
     this.reset();
   }
 
-  companyid: string;
   sexchange: any;
   stockcodelist: any;
   sectorslist: any;
-  companys: any;
 
   ngOnInit(): void {
     this.sexchange = this.dictsinfo.getStockExchange();
     this.stockcodelist = this.dictsinfo.getMockStockCode();
     this.sectorslist = this.dictsinfo.getMockSectorsList();
-
-    this.companyid = this.routeInfo.snapshot.params['id'];
-
-    this.companys = this.companyservice.getComppanyInfo(this.companyid);
   }
 
   ngSaveComapny(value: any) {
@@ -50,10 +45,10 @@ export class EditComponent implements OnInit {
           console.log(JSON.stringify(data));
           const info: any = data;
           if (200 === info.code) {
-              console.log('modify company info successful,redirect page...');
+              console.log('create company info successful,redirect page...');
               this.router.navigate(['/companylist']);
           } else {
-            console.log('modify company info failing.');
+            console.log('create company info failing.');
             this.alerts.push({type : 'danger', message: 'please contact administrators!'});
           }
         }

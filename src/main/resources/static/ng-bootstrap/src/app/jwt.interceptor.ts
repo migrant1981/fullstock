@@ -1,12 +1,3 @@
-import { Unit } from './unit';
-/*
- * @Author: your name
- * @Date: 2020-04-20 14:14:58
- * @LastEditTime: 2020-04-20 14:25:25
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\jwt.interceptor.ts.ts
- */
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,

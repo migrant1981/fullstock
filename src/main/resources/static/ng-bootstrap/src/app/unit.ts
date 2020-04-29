@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-04-19 10:28:21
- * @LastEditTime: 2020-04-21 20:10:19
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\unit.ts
- */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';

@@ -27,6 +27,10 @@ import { ImportstockComponent } from './importstock/importstock.component';
 import { UserPasswordComponent } from './user/user-password/user-password.component';
 import { IpoplanComponent } from './ipoplan/ipoplan.component';
 import { StrockpriceComponent } from './strockprice/strockprice.component';
+import { DashboadComponent } from './dash/dashboad/dashboad.component';
+import { AddComponent } from './company/add/add/add.component';
+import { DetailComponent } from './ipoplan/detail/detail.component';
+import { SignupComponent } from './user/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { StrockpriceComponent } from './strockprice/strockprice.component';
     ImportstockComponent,
     UserPasswordComponent,
     IpoplanComponent,
-    StrockpriceComponent
+    StrockpriceComponent,
+    DashboadComponent,
+    AddComponent,
+    DetailComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

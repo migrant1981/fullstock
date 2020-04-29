@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { CompanyService } from '../../company.service';
+import { IpoplanService } from '../../ipoplan.service';
 import { DictsinfoService } from './../../dictsinfo.service';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
@@ -12,46 +12,38 @@ interface Alert {
 const ALERTS: Alert[] = [];
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css']
 })
-export class EditComponent implements OnInit {
+export class DetailComponent implements OnInit {
 
   alerts : Alert[];
 
-  @Input() searchname: any;
-  @Input() searchdate: any;
-
-  constructor(private routeInfo: ActivatedRoute, private router:Router, private companyservice: CompanyService, public dictsinfo: DictsinfoService) {
+  constructor(private routeInfo: ActivatedRoute, private router:Router, private ipoplanservice: IpoplanService, public dictsinfo: DictsinfoService) {
     this.reset();
   }
-
-  companyid: string;
   sexchange: any;
-  stockcodelist: any;
-  sectorslist: any;
-  companys: any;
+  ipoid: string;
+  ipodetail: any;
 
   ngOnInit(): void {
     this.sexchange = this.dictsinfo.getStockExchange();
-    this.stockcodelist = this.dictsinfo.getMockStockCode();
-    this.sectorslist = this.dictsinfo.getMockSectorsList();
 
-    this.companyid = this.routeInfo.snapshot.params['id'];
+    this.ipoid = this.routeInfo.snapshot.params['id'];
 
-    this.companys = this.companyservice.getComppanyInfo(this.companyid);
+    this.ipodetail = this.ipoplanservice.getIPOInfo(this.ipoid);
   }
 
-  ngSaveComapny(value: any) {
+  ngSaveIPO(value: any) {
     if (this.validInput(value)) {
-      this.companyservice.setCompanyInfo(value).subscribe(
+      this.ipoplanservice.setIPO(value).subscribe(
         data => {
           console.log(JSON.stringify(data));
           const info: any = data;
           if (200 === info.code) {
               console.log('modify company info successful,redirect page...');
-              this.router.navigate(['/companylist']);
+              this.router.navigate(['/ipoplan']);
           } else {
             console.log('modify company info failing.');
             this.alerts.push({type : 'danger', message: 'please contact administrators!'});
@@ -77,4 +69,5 @@ export class EditComponent implements OnInit {
 
     return true;
   }
+
 }

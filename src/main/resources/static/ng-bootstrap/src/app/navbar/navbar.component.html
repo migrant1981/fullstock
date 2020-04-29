@@ -10,23 +10,46 @@
   <a class="navbar-brand" href="#">Stock</a>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+    <ul *ngIf="isRole" class="navbar-nav mr-auto">
+      <li *ngIf="!isSignin" class="nav-item active">
         <a class="nav-link" href [routerLink]="['/login']">Home</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href [routerLink]="['/adminlist']">Company</a>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/dashboad']">Dashboad</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href [routerLink]="['/sellerlist']">Seller</a>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/companylist']">Company List</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href [routerLink]="['/ipoplan']">IPO Plan</a>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/ipoplan']">IPO List</a>
       </li>
-      <li class="nav-item active">
+      <li *ngIf="isSignin" class="nav-item active">
         <a class="nav-link" href [routerLink]="['/importstock']">Import Data</a>
       </li>
-      <li class="nav-item active">
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/stockprice']">Stock Price</a>
+      </li>
+    </ul>
+    <ul *ngIf="!isRole" class="navbar-nav mr-auto">
+      <li *ngIf="!isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/login']">Home</a>
+      </li>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/dashboad']">Dashboad</a>
+      </li>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/signup']">Signup</a>
+      </li>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/changepwd',loginuser]">Change Password</a>
+      </li>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/userprofile',loginuser]">User Profile</a>
+      </li>
+      <li *ngIf="isSignin" class="nav-item active">
+        <a class="nav-link" href [routerLink]="['/ipoplan']">IPO List</a>
+      </li>
+      <li *ngIf="isSignin" class="nav-item active">
         <a class="nav-link" href [routerLink]="['/stockprice']">Stock Price</a>
       </li>
     </ul>
