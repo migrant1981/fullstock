@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { ListComponent } from './company/list/list.component';
-import { EditComponent } from './company/edit/edit.component';
-import { AddComponent } from './company/add/add/add.component';
-import { UserComponent } from './user/user.component';
-import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { ImportstockComponent } from './importstock/importstock.component';
-import { UserPasswordComponent } from './user/user-password/user-password.component';
-import { IpoplanComponent } from './ipoplan/ipoplan.component';
-import { DetailComponent } from './ipoplan/detail/detail.component';
-import { StrockpriceComponent } from './strockprice/strockprice.component';
-import { LoginGuard } from '../app/login.guard';
-import { DashboadComponent } from '../app/dash/dashboad/dashboad.component';
-import { SignupComponent} from '../app/user/signup/signup.component';
+import { LoginComponent } from './component/login/login.component';
+import { ListComponent } from './component/company/list/list.component';
+import { EditComponent } from './component/company/edit/edit.component';
+import { AddComponent } from './component/company/add/add/add.component';
+import { UserComponent } from './component/user/user.component';
+import { UserProfileComponent } from './component/user/user-profile/user-profile.component';
+import { ImportstockComponent } from './component/importstock/importstock.component';
+import { UserPasswordComponent } from './component/user/user-password/user-password.component';
+import { IpoplanComponent } from './component/ipoplan/ipoplan.component';
+import { DetailComponent } from './component/ipoplan/detail/detail.component';
+import { StrockpriceComponent } from './component/strockprice/strockprice.component';
+import { LoginGuard } from './guard/login.guard';
+import { DashboadComponent } from './component/dash/dashboad/dashboad.component';
+import { SignupComponent} from './component//user/signup/signup.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},

@@ -1,0 +1,49 @@
+<div *ngIf="isRole" class="container">
+  <h3>Admin Dashboad</h3>
+  <div class="row">
+      <div class="col-sm-8">
+          <ul class="nav-item active">
+              <li>
+                <a class="nav-link" href [routerLink]="['/addcompany']">Add Company</a>
+              </li>
+              <li>
+                <a class="nav-link" href [routerLink]="['/companylist']">Company List</a>
+              </li>
+              <li>
+                <a class="nav-link" href [routerLink]="['/importstock']">Import Data</a>
+              </li>
+              <li>
+                <a class="nav-link" href [routerLink]="['/stockprice']">Stock List</a>
+              </li>
+              <li>
+                <a class="nav-link" href [routerLink]="['/ipoplan']">IPO List</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="!isRole" class="container">
+  <h3>User Dashboad</h3>
+  <div class="row">
+    <div class="col-sm-8">
+      <ul class="nav-item active">
+        <li>
+          <a class="nav-link" href [routerLink]="['/signup']">Signup</a>
+        </li>
+        <li>
+          <a class="nav-link" href [routerLink]="['/userprofile', loginuser]">User Profile</a>
+        </li>
+        <li>
+          <a class="nav-link" href [routerLink]="['/changepwd', loginuser]">Change Password</a>
+        </li>
+        <li>
+          <a class="nav-link" href [routerLink]="['/stockprice']">Stock List</a>
+        </li>
+        <li>
+          <a class="nav-link" href [routerLink]="['/ipoplan']">IPO List</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

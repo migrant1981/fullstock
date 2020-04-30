@@ -1,11 +1,3 @@
-/*
- * @Author: Sammi Liu
- * @Date: 2020-04-12 20:51:40
- * @LastEditTime: 2020-04-21 11:26:35
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \ng-bootstrap\src\app\app.module.ts
- */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,22 +7,22 @@ import { NgxEchartsModule} from 'ngx-echarts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ListComponent } from './company/list/list.component';
-import { EditComponent } from './company/edit/edit.component';
-import { MoneyPipe } from './money.pipe';
-import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { ImportstockComponent } from './importstock/importstock.component';
-import { UserPasswordComponent } from './user/user-password/user-password.component';
-import { IpoplanComponent } from './ipoplan/ipoplan.component';
-import { StrockpriceComponent } from './strockprice/strockprice.component';
-import { DashboadComponent } from './dash/dashboad/dashboad.component';
-import { AddComponent } from './company/add/add/add.component';
-import { DetailComponent } from './ipoplan/detail/detail.component';
-import { SignupComponent } from './user/signup/signup.component';
+import { UserComponent } from './component/user/user.component';
+import { LoginComponent } from './component/login/login.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { ListComponent } from './component/company/list/list.component';
+import { EditComponent } from './component/company/edit/edit.component';
+import { MoneyPipe } from './pipe/money.pipe';
+import { UserProfileComponent } from './component/user/user-profile/user-profile.component';
+import { ImportstockComponent } from './component/importstock/importstock.component';
+import { UserPasswordComponent } from './component/user/user-password/user-password.component';
+import { IpoplanComponent } from './component/ipoplan/ipoplan.component';
+import { StrockpriceComponent } from './component/strockprice/strockprice.component';
+import { DashboadComponent } from './component/dash/dashboad/dashboad.component';
+import { AddComponent } from './component/company/add/add/add.component';
+import { DetailComponent } from './component/ipoplan/detail/detail.component';
+import { SignupComponent } from './component/user/signup/signup.component';
 
 @NgModule({
   declarations: [
