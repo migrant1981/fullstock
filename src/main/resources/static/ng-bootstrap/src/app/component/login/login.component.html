@@ -19,13 +19,14 @@
   </div>
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" ngModel value="remember-me" name="saveme"> Remember Me
+        <input type="checkbox" ngModel value="remember-me" name="saveme" checked> Remember Me
       </label>
     </div>
     <div class="btn-toolbar" role="toolbar">
       <div class="col-sm-offset-2 col-sm-4">
           <div class="btn-group">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <input type="hidden" name="_method" value="POST" />
           </div>
       </div>
     </div>

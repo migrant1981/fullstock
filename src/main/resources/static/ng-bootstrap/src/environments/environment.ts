@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  baseUrl:  'http://localhost:8888'
+  // adminUrl:  'http://localhost:8889',
+  // baseUrl:  'http://localhost:8888'
+  baseUrl:  'http://localhost:8888',
+  adminUrl:  'http://localhost:8887',
+  companyUrl:  'http://localhost:8889'
 };
 
 /*

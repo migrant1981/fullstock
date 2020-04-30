@@ -29,9 +29,11 @@ export class SignupComponent implements OnInit {
   }
 
   usertype: any;
+  userconfirmed: any;
 
   ngOnInit(): void {
     this.usertype = this.dictsinfo.getUserType();
+    this.userconfirmed = this.dictsinfo.getUserConfirmed();
   }
 
   ngSignup(value: any) {
@@ -40,9 +42,14 @@ export class SignupComponent implements OnInit {
         data => {
           console.log(JSON.stringify(data));
           const info: any = data;
-          if (200 === info.code) {
-              console.log('signup successful,redirect page...');
-              this.router.navigate(['/dashboad']);
+          if (info.userinfo.username != '') {
+              if (sessionStorage.getItem("loginuser")) {
+                console.log('signup successful,redirect page...');
+                this.router.navigate(['/dashboad']);
+              } else {
+                console.log('signup successful,redirect page...');
+              this.router.navigate(['/login']);
+              }
           } else {
             console.log('signup failing.');
             this.alerts.push({type : 'danger', message: 'please contact administrators!'});

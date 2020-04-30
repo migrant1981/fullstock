@@ -32,8 +32,8 @@ export class UserPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.userInfo = {
-      userid: '1',
-      username: 'seller001'
+      userid: sessionStorage.getItem("loginuser"),
+      username: sessionStorage.getItem("loginname")
     };
   }
 
@@ -64,6 +64,10 @@ export class UserPasswordComponent implements OnInit {
   }
 
   validInput(value: any): boolean {
+    if (!value.oldpassword) {
+      this.alerts.push({type : 'danger', message: 'old password required!'});
+      return false;
+    }
     if (!value.password) {
       this.alerts.push({type : 'danger', message: 'password required!'});
       return false;
@@ -71,6 +75,11 @@ export class UserPasswordComponent implements OnInit {
 
     if (!value.cfmpassword) {
       this.alerts.push({type : 'danger', message: 'cfmpassword required!'});
+      return false;
+    }
+
+    if (value.password === value.oldpassword) {
+      this.alerts.push({type : 'danger', message: 'the second password  cannot be the same !'});
       return false;
     }
 

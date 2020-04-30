@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {HttpParams} from "@angular/common/http";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,25 +27,24 @@ export class UserService {
   }
 
   getUserInfo(id: string) {
-    return {
-      id: '1',
-      username:'Seller001',
-      usertype: 'User',
-      email: 'testtest@cn.ibm.com',
-      mobile: '17700998899'
-    };
+    const params = new HttpParams()
+    .set('id', id);
+    return this.http.get(`${environment.baseUrl}/user`, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params
+    });
   }
 
   signup(value: any) {
-    return this.http.post(`${environment.baseUrl}/signup`, JSON.stringify(value), httpOptions);
+    return this.http.post(`${environment.baseUrl}/user/signup`, JSON.stringify(value), httpOptions);
   }
 
   setUserInfo(value: any) {
-    return this.http.post(`${environment.baseUrl}/useraction`, JSON.stringify(value), httpOptions);
+    return this.http.post(`${environment.baseUrl}/user/changeprofile`, JSON.stringify(value), httpOptions);
   }
 
   setUserPwd(value: any) {
-    return this.http.post(`${environment.baseUrl}/userpwdaction`, JSON.stringify(value), httpOptions);
+    return this.http.post(`${environment.baseUrl}/user/changepwd`, JSON.stringify(value), httpOptions);
   }
 }
 

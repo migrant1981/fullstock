@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'companyedit/:id', component: EditComponent, canActivate: [LoginGuard]},
   { path: 'companylist', component: ListComponent, canActivate: [LoginGuard]},
   { path: 'userlist', component: UserComponent, canActivate: [LoginGuard]},
-  { path: 'signup', component: SignupComponent, canActivate: [LoginGuard]},
+  { path: 'signup', component: SignupComponent},
   { path: 'userprofile/:id', component: UserProfileComponent, canActivate: [LoginGuard]},
   { path: 'changepwd/:id', component: UserPasswordComponent, canActivate: [LoginGuard]},
   { path: 'ipoplan', component: IpoplanComponent, canActivate: [LoginGuard]},

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { UserService } from '../service/user';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +21,21 @@ export class Unit {
     return sessionStorage.getItem('token');
   }
 
-  postSignIn(user) {
-    return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOptions);
+  postSignIn(user): Observable<any> {
+    return this.http.post<any>(`${environment.baseUrl}/user/login`,
+    JSON.stringify(user),
+     httpOptions).pipe(
+      tap(list => console.log('getTestList success!')),
+      catchError(this.handleError('getTestList Error'))
+    );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return(error: any): Observable<T> => {
+      console.error(error);
+      // this.log(`${operation} failed:${error.message}`);
+      return of(result as T);
+    };
   }
 }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import { Observable } from 'rxjs';
+import {HttpParams} from "@angular/common/http";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -44,14 +45,24 @@ export class CompanyService {
   }
 
   setCompanyInfo(value: any) {
-    return this.http.post(`${environment.baseUrl}/companyaction`, JSON.stringify(value), httpOptions);
+    return this.http.post(`${environment.companyUrl}/companyaction`, JSON.stringify(value), httpOptions);
   }
 
   getCompanyList(value: any) {
-    return this.http.post(`${environment.baseUrl}/companylist`, JSON.stringify(value), httpOptions);
+    const params = new HttpParams()
+    .set('id', value);
+    return this.http.get(`${environment.companyUrl}/company/list/`, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params
+    });
   }
 
   getCompanyById(id: any) {
-    return this.http.post(`${environment.baseUrl}/singlecompany`, JSON.stringify(id), httpOptions);
+    const params = new HttpParams()
+    .set('id', id);
+    return this.http.get(`${environment.companyUrl}/company/`, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      params
+    });
   }
 }

@@ -23,7 +23,7 @@ export class IpoplanService {
   constructor(private http: HttpClient) { }
 
   getAllIPOList() {
-    return this.http.post(`${environment.baseUrl}/ipoplan`, JSON.stringify(''), httpOptions);
+    return this.http.post(`${environment.companyUrl}/ipoplan`, JSON.stringify(''), httpOptions);
   }
 
   getIPOInfo(id: string) {

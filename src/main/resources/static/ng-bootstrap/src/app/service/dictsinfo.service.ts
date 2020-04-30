@@ -20,6 +20,10 @@ export class DictsinfoService {
     return ['Admin', 'User'];
   }
 
+  getUserConfirmed(): any {
+    return ['Yes', 'No'];
+  }
+
   getMockSectorsList(): any {
     return [{
       id:'1',
